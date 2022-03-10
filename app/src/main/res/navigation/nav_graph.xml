@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboard">
+
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.stp.chitchat.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboard_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_dashboard_to_userProfile"
+            app:destination="@id/userProfile" />
+        <action
+            android:id="@+id/action_dashboard_to_chat"
+            app:destination="@id/chat"
+            app:popUpTo="@id/dashboard" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.stp.chitchat.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_dashboard"
+            app:destination="@id/dashboard" />
+        <action
+            android:id="@+id/action_login_to_userData"
+            app:destination="@id/userData" />
+    </fragment>
+    <fragment
+        android:id="@+id/userData"
+        android:name="com.stp.chitchat.UserData"
+        android:label="fragment_user_data"
+        tools:layout="@layout/fragment_user_data" >
+        <action
+            android:id="@+id/action_userData_to_dashboard"
+            app:destination="@id/dashboard" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfile"
+        android:name="com.stp.chitchat.UserProfile"
+        android:label="UserProfile" />
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.stp.chitchat.Chat"
+        android:label="Chat" >
+        <argument
+            android:name="uniqueId"
+            app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_chat_to_dashboard"
+            app:destination="@id/dashboard" />
+    </fragment>
+</navigation>
